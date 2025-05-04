@@ -108,9 +108,9 @@ class Core(commands.Cog):
             await interaction.response.send_message("You do not have permission to run this command.", ephemeral=True)
             return
         await interaction.response.send_message("Initiating update. The bot will restart shortly...")
-        target_dir = "/home/server/rinandlen/"
-        repo_url = "https://github.com/learnhelp-cc/rinandlen.git"
-        restart_script = "/home/server/rinandlen/bot.py"
+        target_dir = "/home/server/rin-and-len/"
+        repo_url = "https://github.com/learnhelp-cc/rin-and-len.git"
+        restart_script = "/home/server/rin-and-len/bot.py"
 
         try:
             if os.path.exists(target_dir):
