@@ -109,7 +109,7 @@ class Core(commands.Cog):
             return
         await interaction.response.send_message("Initiating update. The bot will restart shortly...")
         target_dir = "/home/server/rin-and-len/"
-        repo_url = "https://github.com/learnhelp-cc/rin-and-len.git"
+        repo_url = "https://github.com/learnhelp-cc/rin-and-lenai.git"
         restart_script = "/home/server/rin-and-len/bot.py"
 
         try:
