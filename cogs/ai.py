@@ -12,6 +12,9 @@ from datetime import datetime, timedelta
 from discord.ext import commands
 from discord import app_commands
 from typing import Optional, Dict, List, Any  # Added Any
+from dotenv import load_dotenv
+
+load_dotenv("/home/server/rinandlen.env")
 
 # Define paths for persistent data - ENSURE THESE DIRECTORIES ARE WRITABLE
 DEFAULT_MEMORY_PATH = "/home/server/wdiscordbot/mind.json"
@@ -25,9 +28,7 @@ DEFAULT_DYNAMIC_LEARNING_PATH = (
 class AICog(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.api_key = os.getenv(
-            "AI_API_KEY"
-        )  # Ensure this holds your OpenRouter API key
+        self.api_key = os.getenv("AI_API_KEY")  # Ensure this holds your OpenRouter API key
         self.api_url = "https://openrouter.ai/api/v1/chat/completions"  # Changed to OpenRouter endpoint
         self.security_code = os.getenv("SERVICE_CODE")
 
