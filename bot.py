@@ -6,7 +6,7 @@ import asyncio
 from discord import app_commands
 
 # Load environment variables
-load_dotenv("/home/server/rinlen.env")
+load_dotenv("/home/server/rinandlen.env")
 discord_token = os.getenv("DISCORD_TOKEN")
 
 # Ensure token is set
