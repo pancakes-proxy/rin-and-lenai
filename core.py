@@ -18,13 +18,13 @@ class Core(commands.Cog):
     @app_commands.command(name="sysinfo", description="Shows the hardware information of the server.")
     async def sysinfo(self, interaction: discord.Interaction):
         # (The CPU, RAM, and other details are hard-coded here as an example.)
-        embed = discord.Embed(title="Nerus pc >.<", color=discord.Color.blue())
+        embed = discord.Embed(title="rin and lens pc >.<", color=discord.Color.blue())
         embed.add_field(name="System", value="PowerEdge R7715 ラックサーバー", inline=False)
         embed.add_field(name="OS", value="ubuntu 24.10", inline=False)
         embed.add_field(name="Processor", value="AMD EPYC 9175F 4.20GHz", inline=False)
         embed.add_field(name="RAM", value="768 GB", inline=False)
         embed.add_field(name="Disk Space", value="480 GB", inline=False)
-        embed.add_field(name="Server Name", value="Freaky Nerus :3", inline=False)
+        embed.add_field(name="Server Name", value="Freaky Rin and Len :3", inline=False)
     
         await interaction.response.send_message(embed=embed)
 
@@ -108,9 +108,9 @@ class Core(commands.Cog):
             await interaction.response.send_message("You do not have permission to run this command.", ephemeral=True)
             return
         await interaction.response.send_message("Initiating update. The bot will restart shortly...")
-        target_dir = "/home/server/neruaibot/"
-        repo_url = "https://github.com/learnhelp-cc/neruaibot.git"
-        restart_script = "/home/server/neruaibot/bot.py"
+        target_dir = "/home/server/rinandlen/"
+        repo_url = "https://github.com/learnhelp-cc/rinandlen.git"
+        restart_script = "/home/server/rinandlen/bot.py"
 
         try:
             if os.path.exists(target_dir):
