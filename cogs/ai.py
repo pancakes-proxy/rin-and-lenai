@@ -22,8 +22,9 @@ DEFAULT_DYNAMIC_LEARNING_PATH = "ai_dynamic_learning_rinandlen.json" # New file 
 class AICog(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.api_key = os.getenv("AI_API_KEY") # Ensure this holds your OpenRouter API key
-        self.api_url = "https://openrouter.ai/api/v1/chat/completions" # Changed to OpenRouter endpoint
+        self.api_key = os.getenv("AI_API_KEY") # Ensure this holds your Meta Llama API key
+        # TODO: Replace with the actual Meta Llama API preview chat completions endpoint URL
+        self.api_url = "https://api.llama.com/v1/chat/completions"
         self.security_code = os.getenv("SERVICE_CODE")
 
         # --- Memory Setup ---
@@ -45,7 +46,7 @@ class AICog(commands.Cog):
 
         # Default configuration
         self.default_config = {
-            "model": "google/gemini-flash-1.5", # Updated model
+            "model": "Llama-3.3-70B-Instruct", # Updated model
             "temperature": 0.8, # Slightly adjusted temperature
             "max_tokens": 2000, # Adjusted max tokens
             "top_p": 0.9,
@@ -594,12 +595,14 @@ class AICog(commands.Cog):
         # -----------------------------------
 
         # --- API Call with Tool Handling ---
+        # TODO: Consult Meta Llama API documentation for required headers.
+        # Authorization header is likely needed. Content-Type is standard.
+        # Other headers like HTTP-Referer and X-Title might not be required or might be different.
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/your-repo", # Optional: Replace with your project URL
-            # **MODIFIED:** Updated X-Title
-            "X-Title": "Kagamine Rin/Len Discord Bot" # Optional: Replace with your bot name
+            # Add any other headers required by the Meta Llama API here
+            # Example: "X-Meta-Specific-Header": "value"
         }
 
         # Combine system prompt, user-specific history, and current prompt
